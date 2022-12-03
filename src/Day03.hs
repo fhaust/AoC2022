@@ -1,4 +1,3 @@
-
 import qualified Data.List as L
 import qualified Data.List.Split as L
 
