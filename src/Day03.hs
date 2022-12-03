@@ -1,15 +1,11 @@
 
 import qualified Data.List as L
+import qualified Data.List.Split as L
 
-prio x | x `elem` ['a'..'z'] = fromEnum x - fromEnum 'a' + 1
-       | x `elem` ['A'..'Z'] = fromEnum x - fromEnum 'A' + 27
+prio x = let x' = fromEnum x in if x' > 96 then x' - 96 else x' - 38
 
 part1 = sum . map (prio . head . uncurry L.intersect . (\x -> splitAt (length x `div` 2) x))
-
-by3 f [] = []
-by3 f (a:b:c:xs) = f a b c : by3 f xs
-
-part2 = sum . map (prio . head) . by3 (\a b c -> a `L.intersect` b `L.intersect` c)
+part2 = sum . map (prio . head . foldl1 L.intersect) . L.chunksOf 3
 
 main = do
   f <- lines <$> readFile "inputs/day03.txt"
