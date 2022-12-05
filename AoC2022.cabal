@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 35ade52a27e243338f1b04aaaea930890115deb748bc871b2efa75d136a03a58
+-- hash: e92d26dab3fab1adcb3c7ca523db1b4341ed70f1e27241da0a21d6354cca6d74
 
 name:           AoC2022
 version:        0.1.0.0
@@ -30,6 +30,7 @@ library
       Day02
       Day03
       Day04
+      Day05
   other-modules:
       Paths_AoC2022
   hs-source-dirs:
@@ -37,8 +38,11 @@ library
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
   build-depends:
       base >=4.7 && <5
+    , containers
     , intervals
+    , megaparsec
     , split
+    , text
   default-language: Haskell2010
 
 executable AoC2022-exe
@@ -51,8 +55,11 @@ executable AoC2022-exe
   build-depends:
       AoC2022
     , base >=4.7 && <5
+    , containers
     , intervals
+    , megaparsec
     , split
+    , text
   default-language: Haskell2010
 
 test-suite AoC2022-test
@@ -66,6 +73,9 @@ test-suite AoC2022-test
   build-depends:
       AoC2022
     , base >=4.7 && <5
+    , containers
     , intervals
+    , megaparsec
     , split
+    , text
   default-language: Haskell2010
